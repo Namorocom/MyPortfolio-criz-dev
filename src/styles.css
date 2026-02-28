@@ -9,6 +9,8 @@
   --color-primary: #f27d26;
   --color-dark: #050505;
   --color-surface: #121212;
+
+  --animate-spin-slow: spin 8s linear infinite;
 }
 
 @layer base {

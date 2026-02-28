@@ -1,58 +1,108 @@
 <div class="min-h-screen selection:bg-primary selection:text-white">
   <!-- Navigation -->
-  <nav class="fixed top-0 left-0 w-full z-50 glass px-6 py-4 flex justify-between items-center">
-    <div class="text-2xl font-display font-bold tracking-tighter">
-      CRIZ<span class="text-primary">.</span>
+  <nav class="fixed top-0 left-0 w-full z-50 glass px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
+    <div class="text-lg md:text-2xl font-display font-bold tracking-tighter truncate max-w-[180px] md:max-w-none">
+      Cipriano<span class="text-primary">-Portfolio.</span>
     </div>
     <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
       <button (click)="scrollTo('home')" class="hover:text-primary cursor-pointer transition-colors bg-transparent border-none p-0 uppercase tracking-widest font-medium text-white">Início</button>
+      <button (click)="scrollTo('about')" class="hover:text-primary cursor-pointer transition-colors bg-transparent border-none p-0 uppercase tracking-widest font-medium text-white">Sobre</button>
       <button (click)="scrollTo('projects')" class="hover:text-primary cursor-pointer transition-colors bg-transparent border-none p-0 uppercase tracking-widest font-medium text-white">Projectos</button>
-      <button (click)="scrollTo('skills')" class="hover:text-primary cursor-pointer transition-colors bg-transparent border-none p-0 uppercase tracking-widest font-medium text-white">Habilidades</button>
       <button (click)="scrollTo('contact')" class="hover:text-primary cursor-pointer transition-colors bg-transparent border-none p-0 uppercase tracking-widest font-medium text-white">Contacto</button>
     </div>
-    <button (click)="scrollTo('contact')" class="bg-primary hover:bg-orange-600 text-white px-6 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105">
+    <button (click)="scrollTo('contact')" class="bg-primary hover:bg-orange-600 text-white px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-bold transition-all transform hover:scale-105 shrink-0">
       CONTRATAR
     </button>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden pt-20">
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="https://ais-pre-vhca2jkqom4hw6apanuyi2-60609716295.europe-west1.run.app/api/images/input_file_0.png" 
-        alt="Criz Background" 
-        class="w-full h-full object-cover opacity-30 grayscale hover:grayscale-0 transition-all duration-1000"
-        referrerpolicy="no-referrer"
-      >
-      <div class="absolute inset-0 bg-linear-to-b from-dark/80 via-dark/40 to-dark"></div>
-    </div>
-
-    <div class="container mx-auto px-6 relative z-10 text-center">
-      <h1 class="animate-hero text-6xl md:text-8xl font-display font-black leading-none mb-6">
-        FRONT-END<br>
-        <span class="text-gradient">DEVELOPER</span>
-      </h1>
-      <p class="animate-hero text-xl md:text-2xl text-white/60 max-w-2xl mx-auto mb-10 font-light">
-        Transformando ideias em experiências digitais memoráveis através de código limpo e design intuitivo.
-      </p>
-      <div class="animate-hero flex flex-col md:flex-row items-center justify-center gap-4">
-        <button (click)="scrollTo('projects')" class="w-full md:w-auto bg-white text-dark px-10 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all">
-          Ver Projectos
-        </button>
-        <button (click)="scrollTo('contact')" class="w-full md:w-auto border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/10 transition-all">
-          Falar Comigo
-        </button>
+  <section #homeSection id="home" class="relative min-h-screen flex items-center overflow-hidden pt-28 md:pt-20">
+    <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div class="reveal">
+        <p class="text-primary font-bold tracking-widest mb-4 animate-hero">Olá,</p>
+        <h1 class="animate-hero text-5xl md:text-7xl font-display font-black leading-tight mb-6">
+          Eu sou o <span class="text-primary">Cipriano</span><br>
+          Desenvolvedor de Software
+        </h1>
+        <div class="animate-hero flex flex-wrap gap-4">
+          <button (click)="scrollTo('contact')" class="bg-primary hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:scale-105">
+            Contrate-me
+          </button>
+          <button class="border border-white/20 hover:bg-white/5 text-white px-8 py-3 rounded-lg font-bold transition-all transform hover:scale-105">
+            Meu currículo
+          </button>
+        </div>
+      </div>
+      
+      <div class="relative flex justify-center reveal">
+        <div class="relative w-64 h-64 md:w-96 md:h-96">
+          <!-- Glowing Rings -->
+          <div class="absolute inset-0 rounded-full border-4 border-primary/20 animate-pulse"></div>
+          <div class="absolute inset-4 rounded-full border-2 border-primary/40 animate-spin-slow"></div>
+          <!-- Profile Image Container -->
+          <div class="absolute inset-8 rounded-full overflow-hidden border-4 border-surface shadow-2xl bg-dark">
+            <img 
+              src="https://ais-pre-vhca2jkqom4hw6apanuyi2-60609716295.europe-west1.run.app/api/images/input_file_0.png" 
+              alt="Cipriano" 
+              class="w-full h-full object-cover"
+              referrerpolicy="no-referrer"
+            >
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
-      <mat-icon>expand_more</mat-icon>
+    <!-- Background Accents -->
+    <div class="absolute top-1/4 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+  </section>
+
+  <!-- About Me Section -->
+  <section #aboutSection id="about" class="py-32 bg-surface/30">
+    <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16">
+      <div class="reveal">
+        <h2 class="text-4xl font-display font-bold mb-8">Sobre mim</h2>
+        <p class="text-white/60 text-lg leading-relaxed mb-10">
+          Sou um desenvolvedor apaixonado por criar soluções digitais que combinam funcionalidade excepcional com design atraente. Com foco em tecnologias modernas, busco sempre superar as expectativas dos clientes.
+        </p>
+        <div class="grid grid-cols-3 gap-4">
+          <div>
+            <p class="text-3xl font-bold text-primary">120+</p>
+            <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Projectos</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-primary">95%</p>
+            <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Sucesso</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-primary">10+</p>
+            <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Anos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
+        <div class="reveal-item glass p-10 rounded-3xl hover:bg-primary/5 transition-all border-b-4 border-b-transparent hover:border-b-primary">
+          <mat-icon class="text-primary text-4xl mb-6">laptop_mac</mat-icon>
+          <h3 class="text-xl font-bold mb-4">Desenvolvimento de Websites</h3>
+          <p class="text-sm text-white/50 leading-relaxed">Criação de sites responsivos, rápidos e otimizados para SEO.</p>
+        </div>
+        <div class="reveal-item glass p-10 rounded-3xl hover:bg-primary/5 transition-all border-b-4 border-b-transparent hover:border-b-primary">
+          <mat-icon class="text-primary text-4xl mb-6">phone_iphone</mat-icon>
+          <h3 class="text-xl font-bold mb-4">Desenvolvimento de Apps</h3>
+          <p class="text-sm text-white/50 leading-relaxed">Desenvolvimento de aplicações móveis intuitivas e poderosas.</p>
+        </div>
+        <div class="reveal-item glass p-10 rounded-3xl hover:bg-primary/5 transition-all border-b-4 border-b-transparent hover:border-b-primary">
+          <mat-icon class="text-primary text-4xl mb-6">cloud_queue</mat-icon>
+          <h3 class="text-xl font-bold mb-4">Hospedagem de Sites</h3>
+          <p class="text-sm text-white/50 leading-relaxed">Soluções de hospedagem seguras e de alta disponibilidade.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-32 bg-surface">
+  <section #projectsSection id="projects" class="py-32 bg-surface">
     <div class="container mx-auto px-6">
       <div class="reveal mb-20">
         <h2 class="text-4xl md:text-6xl font-display font-bold mb-4">PROJECTOS<span class="text-primary">.</span></h2>
@@ -84,7 +134,7 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="py-32">
+  <section #skillsSection id="skills" class="py-32">
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div class="reveal">
@@ -147,7 +197,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-32 bg-surface">
+  <section #contactSection id="contact" class="py-32 bg-surface">
     <div class="container mx-auto px-6">
       <div class="max-w-5xl mx-auto glass rounded-[3rem] overflow-hidden flex flex-col lg:flex-row reveal">
         <div class="lg:w-1/3 bg-primary p-12 text-white">
@@ -234,7 +284,7 @@
   <!-- Footer -->
   <footer class="py-12 border-t border-white/5 text-center">
     <p class="text-white/40 text-sm">
-      &copy; 2024 CRIZ DEVELOPER. Todos os direitos reservados.
+      &copy; 2024 Cipriano Developer. Todos os direitos reservados.
     </p>
   </footer>
 </div>

@@ -58,10 +58,11 @@ export class App implements AfterViewInit {
     }
   ];
 
-  heroSection = viewChild<ElementRef>('hero');
-  projectsSection = viewChild<ElementRef>('projects');
-  skillsSection = viewChild<ElementRef>('skills');
-  contactSection = viewChild<ElementRef>('contact');
+  homeSectionRef = viewChild<ElementRef>('homeSection');
+  aboutSectionRef = viewChild<ElementRef>('aboutSection');
+  projectsSectionRef = viewChild<ElementRef>('projectsSection');
+  skillsSectionRef = viewChild<ElementRef>('skillsSection');
+  contactSectionRef = viewChild<ElementRef>('contactSection');
 
   constructor() {
     this.contactForm = this.fb.group({
@@ -70,7 +71,7 @@ export class App implements AfterViewInit {
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
 
-    // Load messages from "database" (localStorage)
+    // Carregar mensagens do "banco de dados" (localStorage)
     effect(() => {
       if (isPlatformBrowser(this.platformId)) {
         const saved = localStorage.getItem('portfolio_messages');
@@ -83,19 +84,20 @@ export class App implements AfterViewInit {
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.initAnimations();
+      // Pequeno delay para garantir que o DOM está pronto para animações
+      setTimeout(() => this.initAnimations(), 100);
     }
   }
 
   private initAnimations() {
-    // Hero animations
+    // Animações do Hero
     animate(
       ".animate-hero",
       { opacity: [0, 1], y: [50, 0] },
       { duration: 0.8, delay: stagger(0.2), ease: "easeOut" }
     );
 
-    // Scroll reveal animations
+    // Animações de revelação ao rolar
     inView(".reveal", (element) => {
       animate(
         element,
@@ -127,7 +129,7 @@ export class App implements AfterViewInit {
       
       if (isPlatformBrowser(this.platformId)) {
         localStorage.setItem('portfolio_messages', JSON.stringify(currentMessages));
-        // Open WhatsApp
+        // Abrir WhatsApp
         this.openWhatsApp(newMessage.name, newMessage.message);
         this.contactForm.reset();
         alert('Mensagem enviada com sucesso! Redirecionando para o WhatsApp...');
@@ -145,7 +147,20 @@ export class App implements AfterViewInit {
 
   scrollTo(id: string) {
     if (isPlatformBrowser(this.platformId)) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Fallback usando viewChild se o ID falhar
+        const sectionMap: Record<string, ElementRef | undefined> = {
+          home: this.homeSectionRef(),
+          about: this.aboutSectionRef(),
+          projects: this.projectsSectionRef(),
+          skills: this.skillsSectionRef(),
+          contact: this.contactSectionRef()
+        };
+        sectionMap[id]?.nativeElement?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }
 }
