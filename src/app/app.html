@@ -42,7 +42,7 @@
           <!-- Profile Image Container -->
           <div class="absolute inset-8 rounded-full overflow-hidden border-4 border-surface shadow-2xl bg-dark">
             <img 
-              src="../app../src/IMG-20251017-WA0018.jpg" 
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" 
               alt="Cipriano" 
               class="w-full h-full object-cover"
               referrerpolicy="no-referrer"
@@ -58,30 +58,43 @@
   </section>
 
   <!-- About Me Section -->
-  <section #aboutSection id="about" class="py-32 bg-surface/30">
-    <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-16">
-      <div class="reveal">
-        <h2 class="text-4xl font-display font-bold mb-8">Sobre mim</h2>
-        <p class="text-white/60 text-lg leading-relaxed mb-10">
-          Sou um desenvolvedor apaixonado por criar soluções digitais que combinam funcionalidade excepcional com design atraente. Com foco em tecnologias modernas, busco sempre superar as expectativas dos clientes.
-        </p>
-        <div class="grid grid-cols-3 gap-4">
-          <div>
-            <p class="text-3xl font-bold text-primary">12+</p>
-            <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Projectos</p>
+  <section #aboutSection id="about" class="py-32 bg-surface/30 overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-20">
+        <div class="reveal relative">
+          <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+          <div class="relative glass p-4 rounded-[2rem] transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+            <img 
+              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000&auto=format&fit=crop" 
+              alt="Programador trabalhando" 
+              class="rounded-[1.5rem] w-full h-[400px] object-cover shadow-2xl"
+              referrerpolicy="no-referrer"
+            >
           </div>
-          <div>
-            <p class="text-3xl font-bold text-primary">95%</p>
-            <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Sucesso</p>
-          </div>
-          <div>
-            <p class="text-3xl font-bold text-primary">2+</p>
-            <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Anos</p>
+        </div>
+        <div class="reveal">
+          <h2 class="text-4xl font-display font-bold mb-8">Sobre mim</h2>
+          <p class="text-white/60 text-lg leading-relaxed mb-10">
+            Sou um desenvolvedor apaixonado por criar soluções digitais que combinam funcionalidade excepcional com design atraente. Com foco em tecnologias modernas, busco sempre superar as expectativas dos clientes.
+          </p>
+          <div class="grid grid-cols-3 gap-4">
+            <div>
+              <p class="text-3xl font-bold text-primary">120+</p>
+              <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Projectos</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-primary">95%</p>
+              <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Sucesso</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-primary">10+</p>
+              <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Anos</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
         <div class="reveal-item glass p-10 rounded-3xl hover:bg-primary/5 transition-all border-b-4 border-b-transparent hover:border-b-primary">
           <mat-icon class="text-primary text-4xl mb-6">laptop_mac</mat-icon>
           <h3 class="text-xl font-bold mb-4">Desenvolvimento de Websites</h3>
